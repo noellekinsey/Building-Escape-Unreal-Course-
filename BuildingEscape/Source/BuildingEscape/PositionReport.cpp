@@ -1,7 +1,7 @@
 // Copyright MJ & Co 2017
 
 #include "PositionReport.h"
-
+#include "Gameframework/Actor.h"
 
 // Sets default values for this component's properties
 UPositionReport::UPositionReport()
@@ -19,7 +19,11 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("Reporter reporting for duty!"))
+	//Getting component owner's name
+	FString ObjectName = GetOwner()->GetName();
+
+	//Log Test
+	UE_LOG(LogTemp, Warning, TEXT("Reporter for %s"), *ObjectName);
 	
 }
 
